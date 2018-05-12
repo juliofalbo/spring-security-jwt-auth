@@ -1,4 +1,4 @@
-package com.s2it.auth.api.filter;
+package com.s2it.auth.security.filter;
 
 import java.io.IOException;
 
