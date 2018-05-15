@@ -58,12 +58,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.and()
 			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 			.and()
-			.authorizeRequests().antMatchers("/api/public/**").permitAll()
+			.authorizeRequests().antMatchers("/api/public/**", "/h2/**").permitAll()
 			.anyRequest().authenticated();
 
 		httpSecurity.addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
 
 		httpSecurity.headers().cacheControl();
+		
+		//Habilitar a interface visual do H2
+		httpSecurity.headers().frameOptions().disable();
 	}
 
 }

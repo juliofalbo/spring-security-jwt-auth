@@ -67,6 +67,8 @@ public class AuthenticationController {
 		}
 
 		log.info("Gerando token para o email {}.", authenticationDto.getEmail());
+		
+		//Valida as credenciais do usuário no momento do login (sem token)
 		Authentication authentication = authenticationManager.authenticate(
 				new UsernamePasswordAuthenticationToken(authenticationDto.getEmail(), authenticationDto.getPassword()));
 		SecurityContextHolder.getContext().setAuthentication(authentication);

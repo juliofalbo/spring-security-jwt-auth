@@ -22,6 +22,7 @@ public class PasswordUtils {
 	/**
 	 * Verifica se a senha é válida.
 	 * 
+	 * Obs: Método não utilizado, mas acho legal mostrar como o Spring faz a verificação de senha por baixo dos panos
 	 * @param password
 	 * @param encodedPassword
 	 * @return boolean

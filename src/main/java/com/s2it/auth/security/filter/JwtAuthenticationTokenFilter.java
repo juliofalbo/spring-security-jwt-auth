@@ -40,6 +40,7 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
 		if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
 			UserDetails userDetails = this.userDetailsService.loadUserByUsername(username);
 
+			//Valida a requisição quando há token, ou seja, valida o token e mantém o usuário logado
 			if (jwtTokenUtil.isValidToken(token)) {
 				UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
 						userDetails, null, userDetails.getAuthorities());
